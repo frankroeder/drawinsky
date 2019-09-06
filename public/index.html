@@ -3,25 +3,35 @@
   <meta charset="UTF-8">
   <title>Quickdraw Visualizer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="css/w3.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </head>
 <body>
-  <button class="w3-btn w3-ripple w3-red" id="btnClear" onclick="clearDrawing()">clear</button>
-  <button class="w3-btn w3-ripple w3-red" id="btnSave" onclick="saveDrawing()">save</button>
-  <div id="dropDiv">
-    <h3> Please select your class </h3>
-    <select id="dropDown">
-      <option value="dog">dog</option>
-      <option value="car">car</option>
-      <option value="person">person</option>
-      <option selected="selected" value="cat">cat</option>
-    </select>
+  <div class="container-fluid">
+    <div class="row align-items-center">
+    <div class="col-sm">
+      <button type="button" class="btn btn-primary" id="btnClear" onclick="clearDrawing()">clear</button>
+    </div>
+    <div class="col-sm">
+      <div id="dropDiv">
+        <h4> Please select your class </h4>
+        <select id="dropDown">
+          <option value="dog">dog</option>
+          <option value="car">car</option>
+          <option value="person">person</option>
+          <option selected="selected" value="cat">cat</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm">
+      <button type="button" class="btn btn-primary" id="btnSave" onclick="saveDrawing()">save</button>
+    </div>
   </div>
-  <div id="wrapper">
-    <canvas id="canvas" resize></canvas>
+
+  <div class="row align-items-center">
+    <canvas id="canvas" class="border border-secondary" resize></canvas>
+  </div>
   </div>
   <script src="js/paper-full.js"></script>
   <script>
@@ -41,5 +51,7 @@
     })
   </script>
   <script src="js/drawing.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
