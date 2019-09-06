@@ -1,5 +1,5 @@
 // Initialize Variables
-var path, ink, chart, scores;
+var path, ink, chart, scores, imgData;
 var timer = 0, lastTimestamp = 0, lastTimestamp_check = 0, idx_guess = 0;
 var d_scores = {}
 
@@ -97,12 +97,14 @@ function clearDrawing() {
 function saveDrawing() {
   // Get Paper Canvas Weight/Height
   var c_dims = getCanvasDimensions();
-  const imgData = {
+  var e = document.getElementById("dropDown");
+  var selectedWord = e.options[e.selectedIndex].value;
+  imgData = {
     "language":"quickdraw",
     "writing_guide":{"width": c_dims.width, "height":c_dims.height},
-    "ink": [ink]
+    "ink": [ink],
+    "word": selectedWord
   }
-  alert("Image saved")
   clearDrawing()
 }
 

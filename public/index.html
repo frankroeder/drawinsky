@@ -1,0 +1,45 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Quickdraw Visualizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/w3.css">
+  <link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-3.4.1.slim.min.js"></script>
+</head>
+<body>
+  <button class="w3-btn w3-ripple w3-red" id="btnClear" onclick="clearDrawing()">clear</button>
+  <button class="w3-btn w3-ripple w3-red" id="btnSave" onclick="saveDrawing()">save</button>
+  <div id="dropDiv">
+    <h3> Please select your class </h3>
+    <select id="dropDown">
+      <option value="dog">dog</option>
+      <option value="car">car</option>
+      <option value="person">person</option>
+      <option selected="selected" value="cat">cat</option>
+    </select>
+  </div>
+  <div id="wrapper">
+    <canvas id="canvas" resize></canvas>
+  </div>
+  <script src="js/paper-full.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#btnSave").on("click", function(){
+        $.ajax({
+          type: 'POST',
+          url: 'http://localhost:4000/data',
+          data: JSON.stringify(imgData),
+          contentType: "application/json",
+          dataType: 'json'
+        }).done(function(data){
+          console.log('Post Saved');
+          console.log(data);
+        });
+      })
+    })
+  </script>
+  <script src="js/drawing.js"></script>
+</body>
+</html>
