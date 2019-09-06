@@ -89,7 +89,9 @@ function clearDrawing() {
   d_scores = {};
 
   // Destroy Guess Chart
-  chart.destroy();
+  if(chart) {
+    chart.destroy();
+  }
 
 }
 
