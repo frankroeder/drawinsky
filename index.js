@@ -33,6 +33,6 @@ app.post('/data', function (req, res) {
     res.send()
   })
 })
-
+console.log("starting backend on port", port)
 app.listen(port)
 
