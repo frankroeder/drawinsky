@@ -62,10 +62,6 @@ window.onload = function() {
     //   lastTimestamp_check = thisTimestamp;
     // }
   }
-
-  // Initialize Info Modal
-  initInfoModal();
-
 }
 
 // Initialize Ink Array
@@ -134,17 +130,4 @@ function createArray(len, itm) {
         len >>>= 1;
     }
     return arr2;
-}
-
-// Initialize Info Modal
-function initInfoModal(){
-
-  // Get the modal
-  var modal = document.getElementById('info');
-
-  // Get the button that opens the modal
-  var btn = document.getElementById("btnInfo");
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
 }
