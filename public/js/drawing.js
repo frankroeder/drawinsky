@@ -19,10 +19,10 @@ window.onload = function() {
 
     // Get Time [ms] for each Guess (needed for accurate Google AI Guessing)
     var thisTimestamp = event.event.timeStamp;
-    if(timer === 0){
+    if(timer === 0) {
       timer = 1;
       var time = 0;
-    }else{
+    } else {
       var timeDelta = thisTimestamp - lastTimestamp;
       var time = ink[2][ink[2].length-1] + timeDelta;
     }
@@ -68,12 +68,11 @@ function saveDrawing() {
   // Get Paper Canvas Weight/Height
   var c_dims = getCanvasDimensions()
   var e = document.getElementById("dropDown")
-  var selectedWord = e.options[e.selectedIndex].value
+  var label = e.options[e.selectedIndex].value
   imgData = {
-    "language":"quickdraw",
-    "writing_guide":{"width": c_dims.width, "height":c_dims.height},
-    "ink": [ink],
-    "word": selectedWord
+    "dims": {"width": c_dims.width, "height":c_dims.height},
+    "label": label,
+    "ink": [ink]
   }
   clearDrawing()
 }

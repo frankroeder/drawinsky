@@ -16,12 +16,10 @@ function uuidv4() {
   });
 }
 app.post('/data', function (req, res) {
-  console.log(req.body)
   const writeObj = {
-    "word": req.body.word,
-    "countrycode": "DE",
+    "dims": req.body.dims,
+    "label": req.body.label,
     "timestamp": new Date().toUTCString(),
-    "recognized": true,
     "key_id": uuidv4().toString(),
     "drawing": req.body.ink
   }
@@ -32,5 +30,6 @@ app.post('/data', function (req, res) {
     res.send()
   })
 })
+
 console.log("starting backend on port", port)
 app.listen(port)
