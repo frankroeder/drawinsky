@@ -25,7 +25,7 @@ app.post('/data', function (req, res) {
     "key_id": uuidv4().toString(),
     "drawing": req.body.ink
   }
-  fs.appendFile('test.ndjson', `${JSON.stringify(writeObj)}\n`, function (err) {
+  fs.appendFile('sketches.ndjson', `${JSON.stringify(writeObj)}\n`, function (err) {
     if (err) {
       throw err
     }
@@ -34,4 +34,3 @@ app.post('/data', function (req, res) {
 })
 console.log("starting backend on port", port)
 app.listen(port)
-
