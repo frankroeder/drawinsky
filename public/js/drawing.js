@@ -2,6 +2,7 @@
 var path, ink, scores, imgData
 var timer = 0, lastTimestamp = 0, lastTimestamp_check = 0, idx_guess = 0
 var d_scores = {}
+var selectedWidth = 5
 
 paper.install(window)
 
@@ -10,13 +11,25 @@ window.onload = function() {
   initInk()
   paper.setup('canvas')
   var tool = new Tool()
+  // The mouse has to drag at least 10pt
+  // before the next drag event is fired:
+  tool.minDistance = 10;
 
   // Paper Tool Mouse Down Event
   tool.onMouseDown = function(event) {
+    if (path) {
+      path.selected = false;
+    };
+    // Create a new path
     path = new Path();
     path.strokeColor = 'black';
-    path.strokeWidth = 7;
-
+    path.strokeWidth = selectedWidth;
+    // Set the stroke cap of the path to be round:
+    path.strokeCap = 'round';
+    path.strokeJoin = 'round';
+    path.fullySelected = true;
+  
+    
     // Get Time [ms] for each Guess (needed for accurate Google AI Guessing)
     var thisTimestamp = event.event.timeStamp;
     if(timer === 0){
@@ -48,6 +61,10 @@ window.onload = function() {
     // Reset Timestamps
     lastTimestamp = thisTimestamp
   }
+  tool.onMouseUp = function(event) {
+    path.selected = false;
+    path.smooth();
+  }  
 }
 
 function initInk(){
