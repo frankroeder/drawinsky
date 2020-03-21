@@ -18,7 +18,6 @@ window.onload = function() {
   // Paper Tool Mouse Down Event
   tool.onMouseDown = function(event) {
     if (path) {
-      path.selected = false;
     };
     path = new Path({
       segments: [event.point],
@@ -61,7 +60,6 @@ window.onload = function() {
     lastTimestamp = thisTimestamp
   }
   tool.onMouseUp = function(event) {
-    path.selected = false;
     path.simplify();
   }  
 }
