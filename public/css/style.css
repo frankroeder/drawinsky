@@ -4,7 +4,7 @@
 }
 #canvas {
   height: 512px;
-  width: 512px;
+  width: 1024px;
   cursor: pointer;
 }
 .container-fluid {

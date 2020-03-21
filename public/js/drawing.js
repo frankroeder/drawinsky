@@ -2,7 +2,7 @@
 var path, ink, scores, imgData
 var timer = 0, lastTimestamp = 0, lastTimestamp_check = 0, idx_guess = 0
 var d_scores = {}
-var selectedWidth = 5
+var selectedWidth = 2
 
 paper.install(window)
 
@@ -13,22 +13,21 @@ window.onload = function() {
   var tool = new Tool()
   // The mouse has to drag at least 10pt
   // before the next drag event is fired:
-  tool.minDistance = 10;
+  tool.minDistance = 3.5;
 
   // Paper Tool Mouse Down Event
   tool.onMouseDown = function(event) {
     if (path) {
       path.selected = false;
     };
-    // Create a new path
-    path = new Path();
-    path.strokeColor = 'black';
-    path.strokeWidth = selectedWidth;
-    // Set the stroke cap of the path to be round:
-    path.strokeCap = 'round';
-    path.strokeJoin = 'round';
-    path.fullySelected = true;
-  
+    path = new Path({
+      segments: [event.point],
+      strokeColor: 'black',
+      strokeWidth: selectedWidth,
+      strokeCap: 'round',
+      strokeJoin: 'round'
+  });
+    
     
     // Get Time [ms] for each Guess (needed for accurate Google AI Guessing)
     var thisTimestamp = event.event.timeStamp;
@@ -63,7 +62,7 @@ window.onload = function() {
   }
   tool.onMouseUp = function(event) {
     path.selected = false;
-    path.smooth();
+    path.simplify();
   }  
 }
 
