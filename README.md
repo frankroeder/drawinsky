@@ -9,9 +9,15 @@ of objects.
 
 - Install dependencies with `npm i`
 - Start app with `npm start`
-- Open browser at `http://localhost:4000`
+- Open `http://localhost:4000`
+
+### Docker
+
+- `docker build --rm -t drawinsky .`
+- `docker run --rm -it -p 4000:4000 drawinsky`
 
 # References
+
 - http://paperjs.org
 - https://github.com/engelsjk/web-demo-quickdraw-visualizer
 - https://github.com/googlecreativelab/quickdraw-dataset
