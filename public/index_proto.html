@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Drawinskyprototype</title>
+    <link rel="stylesheet" href="css/style_proto.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-image: url(https://static.vecteezy.com/system/resources/previews/000/107/464/original/huge-doodle-vector-pack.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="opacity">
+        <div id="header">
+            <h1>Welcome to drawinsky!</h1>
+            <p>Can a neural network learn a person's drawing style?</p>
+        </div>
+
+        <div class="navi">
+            <button class="button" onclick="clearDrawing()">Clear</button>
+            <div class="dropdown">
+                <button class="dropbtn">What would you like to draw?</button>
+                <div class="dropdown-content">
+                    <a href="#">Cat</a>
+                    <a href="#">Person</a>
+                    <a href="#">Dog</a>
+                </div>
+            </div>
+            <button class="button" onclick="saveDrawing()">Save</button>
+
+        </div>
+
+        <div class="navi">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+    <script>
+        $("#btnSave").click(function() {
+          $.post({
+            type: 'POST',
+            url: 'http://localhost:4000/data',
+            data: JSON.stringify(imgData),
+            contentType: "application/json",
+            dataType: 'json'
+          }, function(data, status) {
+            console.log('Post Saved')
+            console.log(data)
+            console.log(status)
+          })
+        })
+      </script>
+      <script src="js/paper-full.js"></script>
+      <script src="js/drawing.js"></script>
+</body>
+
+</html>
