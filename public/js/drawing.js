@@ -70,7 +70,7 @@ window.onload = function () {
     path = new Path({
       segments: [event.point],
       strokeColor: 'black',
-      strokeWidth: 2,
+      strokeWidth: 5,
       strokeCap: 'round',
       strokeJoin: 'round',
     });
