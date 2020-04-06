@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <style>
@@ -37,44 +38,54 @@
     <div class="w3-container" style="background-image: url('huge-doodle-vector-pack2.jpg'); background-size: cover;">
         <br />
 
-        <!--ROW 1-->
+        <!--ROW 1: DROPDOWN MENU-->
         <div class="w3-row-padding">
             <div class="w3-content" style="max-width:600px;">
                 <div class="w3-center">
-                    <button id="what" class="w3-mobile w3-button w3-teal w3-round-large w3-card-2" style="transition-duration: 0.2s;">
-                        What would you like to draw?
-                    </button>
+                    <div class="dropdown">
+                        <button id="what" class="dropbtn w3-mobile w3-button w3-card-2"
+                            style="transition-duration: 0.2s;">
+                            What would you like to draw?
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#">Cat</a>
+                            <a href="#">Person</a>
+                            <a href="#">Dog</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <br />
 
-        <!--ROW 2-->
+        <!--ROW 2: CANVAS-->
         <div class="w3-row-padding">
             <div class="w3-content" style="max-width: 600px;">
                 <div class="w3-center">
-                    <canvas class="w3-block"
-                        style="border: 1px solid #000000; background-color: white;min-width: 200px;min-height: 200px;">
+                    <canvas id="canvas" class="w3-block"
+                        style="border: 1px solid #000000; background-color: white;min-width: 300px;min-height: 200px;">
                     </canvas>
                 </div>
             </div>
         </div>
 
         <br />
-        <!--ROW 3-->
+        <!--ROW 3: CLEAR & SAVE BUTTONS-->
         <div class="w3-row-padding">
             <div class="w3-content" style="max-width:600px;">
                 <div class="w3-half w3-col">
                     <div class="w3-center w3-margin-bottom">
-                        <button id="save" class="w3-mobile w3-button w3-teal w3-round-large w3-card-2" style="transition-duration: 0.2s;" onclick="clearDrawing()">
+                        <button id="btnClear" class="button w3-mobile w3-button w3-teal w3-round-large w3-card-2"
+                            style="transition-duration: 0.2s;" onclick="clearDrawing()">
                             Clear
                         </button>
                     </div>
                 </div>
                 <div class="w3-half w3-col">
                     <div class="w3-center w3-margin-bottom">
-                        <button id="clear" class="w3-mobile w3-button w3-teal w3-round-large w3-card-2" style="transition-duration: 0.2s;" onclick="saveDrawing()">
+                        <button id="btnSave" class="button w3-mobile w3-button w3-teal w3-round-large w3-card-2"
+                            style="transition-duration: 0.2s;" onclick="saveDrawing()">
                             Save
                         </button>
                     </div>
